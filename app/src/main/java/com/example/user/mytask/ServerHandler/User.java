@@ -1,8 +1,9 @@
+package com.example.user.mytask.ServerHandler;
 
-
+import java.io.Serializable;
 import java.util.Vector;
 
-public class User {
+public class User implements Serializable {
     String userName;
     String email;
     String name;
@@ -30,6 +31,11 @@ public class User {
         this.family = family;
         this.password = password;
         this.userType = userType;
+        tasks = new Vector<>();
+        types = new Vector<>();
+        types.add(new Type("Low",0));
+        types.add(new Type("Average",50));
+        types.add(new Type("High",100));
     }
 
     public User() {

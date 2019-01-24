@@ -1,30 +1,23 @@
+package com.example.user.mytask;
+
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.v7.app.AlertDialog;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+
+import com.example.user.mytask.ServerHandler.ServerHandler;
+
 import java.io.IOException;
-
-public class TasksActivity {
-}
-package com.example.soroush.taskmanager;
-
-        import android.content.Context;
-        import android.content.DialogInterface;
-        import android.content.Intent;
-        import android.os.Bundle;
-        import android.support.annotation.Nullable;
-        import android.support.v7.app.AlertDialog;
-        import android.support.v7.app.AppCompatActivity;
-        import android.support.v7.widget.LinearLayoutManager;
-        import android.support.v7.widget.RecyclerView;
-        import android.view.LayoutInflater;
-        import android.view.View;
-        import android.widget.Button;
-        import android.widget.EditText;
-        import android.widget.Toast;
-
-        import com.example.soroush.taskmanager.ServerHandler.ServerHandler;
-        import com.example.soroush.taskmanager.ServerHandler.Type;
-        import com.example.soroush.taskmanager.ServerHandler.User;
-        import com.example.soroush.taskmanager.Task.TaskAdapter;
-
-        import java.io.IOException;
 
 public class TasksActivity extends AppCompatActivity {
     final Context context = this;
@@ -32,7 +25,7 @@ public class TasksActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.user_tasks_layout);
+        setContentView(R.layout.user_task_layout);
         final User user = (User) getIntent().getSerializableExtra("user");
         final TaskAdapter taskAdapter = new TaskAdapter(user);
         RecyclerView recyclerView = (RecyclerView)findViewById(R.id.user_tasks_recycler_view);
@@ -45,7 +38,7 @@ public class TasksActivity extends AppCompatActivity {
         addTask.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(TasksActivity.this,AddTaskActivity.class);
+                Intent intent = new Intent(TasksActivity.this, AddTaskActivity.class);
                 intent.putExtra("user",user);
                 startActivity(intent);
             }
@@ -132,7 +125,7 @@ public class TasksActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     LayoutInflater li = LayoutInflater.from(context);
-                    View defineView = li.inflate(R.layout.defin_task_others_layout, null);
+                    View defineView = li.inflate(R.layout.defin_task_lother_ayout, null);
                     AlertDialog.Builder builder = new AlertDialog.Builder(context);
                     final EditText setTypeName = (EditText)findViewById(R.id.set_type_task_name);
                     final EditText setTypePriority = (EditText)findViewById(R.id.set_type_priority);
@@ -173,3 +166,4 @@ public class TasksActivity extends AppCompatActivity {
         }
     }
 }
+
