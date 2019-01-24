@@ -1,9 +1,8 @@
-package com.example.soroush.taskmanager.ServerHandler;
 
-import java.io.Serializable;
+
 import java.util.Vector;
 
-public class User implements Serializable {
+public class User {
     String userName;
     String email;
     String name;
@@ -31,11 +30,6 @@ public class User implements Serializable {
         this.family = family;
         this.password = password;
         this.userType = userType;
-        tasks = new Vector<>();
-        types = new Vector<>();
-        types.add(new Type("Low",0));
-        types.add(new Type("Average",50));
-        types.add(new Type("High",100));
     }
 
     public User() {
