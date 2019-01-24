@@ -16,6 +16,9 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.user.mytask.ServerHandler.ServerHandler;
+import com.example.user.mytask.ServerHandler.Type;
+import com.example.user.mytask.ServerHandler.User;
+import com.example.user.mytask.Task.TaskAdapter;
 
 import java.io.IOException;
 

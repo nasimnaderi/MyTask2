@@ -13,7 +13,16 @@ public class ServerHandler {
     private Socket connection;
     private DataInputStream dataInputStream;
     private DataOutputStream dataOutputStream;
-
+    public String getType(String username) throws IOException {
+        String string = "GET TYPE " + username;
+        dataOutputStream.writeBytes(string);
+        byte[] ans = new byte[16];
+        int count = dataInputStream.read(ans);
+        if(new String(ans,0,count).equals("NOK"))
+            return "";
+        else
+            return new String(ans,0,count);
+    }
 
     public ServerHandler() {
         try {
