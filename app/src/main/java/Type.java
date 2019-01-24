@@ -1,9 +1,6 @@
-
-
 public class Type {
     String name;
     int priority;
-
     public Type(String name, int priority) {
         this.name = name;
         this.priority = priority;
