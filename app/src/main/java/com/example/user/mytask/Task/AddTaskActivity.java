@@ -1,5 +1,5 @@
-package com.example.user.mytask;
 
+package com.example.user.mytask.Task;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Context;
@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -19,34 +18,29 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TimePicker;
-import android.widget.Toast;
 
-import com.example.user.mytask.ServerHandler.ServerHandler;
+import com.example.user.mytask.R;
 import com.example.user.mytask.ServerHandler.Task;
 import com.example.user.mytask.ServerHandler.Type;
 import com.example.user.mytask.ServerHandler.User;
+import com.example.user.mytask.TasksActivity;
 
-import java.io.IOException;
 import java.util.Date;
 
-public class SetOthersTaskActivity extends AppCompatActivity {
-
+public class AddTaskActivity extends AppCompatActivity {
     final Context context = this;
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        super.onCreate(savedInstanceState);
         setContentView(R.layout.create_task_layout);
         final User user = (User) getIntent().getSerializableExtra("user");
-        final TextInputEditText name = (TextInputEditText) findViewById(R.id.set_task_name);
-        final TextInputEditText taskDate = (TextInputEditText) findViewById(R.id.set_task_date);
-        final TextInputEditText taskTime = (TextInputEditText) findViewById(R.id.set_task_time);
-        final Spinner typename = (Spinner) findViewById(R.id.set_task_type);
-        final TextInputEditText description = (TextInputEditText) findViewById(R.id.set_task_description);
-        final TextInputEditText username = (TextInputEditText) findViewById(R.id.set_task_username);
-        Button back = (Button) findViewById(R.id.set_task_back);
-        FloatingActionButton add = (FloatingActionButton) findViewById(R.id.set_task_btn);
+        final EditText name = (EditText) findViewById(R.id.create_task_name);
+        final EditText taskDate = (EditText)findViewById(R.id.create_task_date);
+        final EditText taskTime = (EditText)findViewById(R.id.create_task_time);
+        final Spinner typename = (Spinner) findViewById(R.id.create_task_type);
+        final EditText description = (EditText) findViewById(R.id.create_task_description);
+        Button back = (Button)findViewById(R.id.create_task_back);
+        FloatingActionButton add = (FloatingActionButton)findViewById(R.id.create_task_btn);
         String[] types = new String[user.getTypes().size()];
         for (int i = 0; i < types.length; i++) {
             types[i] = user.getTypes().get(i).getName();
@@ -96,29 +90,8 @@ public class SetOthersTaskActivity extends AppCompatActivity {
             public void afterTextChanged(Editable s) {
                 if (name.getText().toString().trim().isEmpty()) {
                     name.setError("Task name can't stay empty");
-                }else {
-                    name.setError(null);
-                }
-            }
-        });
-
-        username.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                if (username.getText().toString().trim().isEmpty()) {
-                    username.setError("you must enter username to define task.");
                 } else{
-                    username.setError(null);
+                    name.setError(null);
                 }
             }
         });
@@ -126,8 +99,8 @@ public class SetOthersTaskActivity extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(SetOthersTaskActivity.this, TasksActivity.class);
-                intent.putExtra("user", user);
+                Intent intent = new Intent(AddTaskActivity.this,TasksActivity.class);
+                intent.putExtra("user",user);
                 startActivity(intent);
             }
         });
@@ -135,45 +108,36 @@ public class SetOthersTaskActivity extends AppCompatActivity {
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                if (!name.getText().toString().trim().isEmpty() && !username.getText().toString().trim().isEmpty()) {
+                if(!name.getText().toString().trim().isEmpty()){
                     Date date;
                     try {
                         String[] dateString = taskDate.getText().toString().split("-");
                         String[] str = taskTime.getText().toString().split(":");
-                        date = new Date(Integer.valueOf(dateString[0]), Integer.valueOf(dateString[1]), Integer.valueOf(dateString[2]),
-                                Integer.valueOf(str[0]), Integer.valueOf(str[1]), 0);
-                        Log.d("date", date.toString());
-                    } catch (Exception e) {
+                        date = new Date(Integer.valueOf(dateString[0]),Integer.valueOf(dateString[1]),Integer.valueOf(dateString[2]),
+                                Integer.valueOf(str[0]),Integer.valueOf(str[1]),0);
+                        Log.d("date",date.toString());
+                    }catch (Exception e){
                         date = null;
                     }
                     String descrip = description.getText().toString();
-                    if (description.getText().toString().trim().isEmpty())
+                    if(description.getText().toString().trim().isEmpty())
                         descrip = null;
                     int pr = 0;
                     for (int i = 0; i < user.getTypes().size(); i++) {
-                        if (user.getTypes().get(i).getName().equals(typename.getSelectedItem().toString()))
+                        if(user.getTypes().get(i).getName().equals(typename.getSelectedItem().toString()))
                             pr = user.getTypes().get(i).getPriority();
                     }
-                    Task task = new Task(name.getText().toString(), date, new Type(typename.getSelectedItem().toString(), pr), descrip);
-                    try {
-                        String userType = new ServerHandler().getType(username.getText().toString());
-                        if (userType != null) {
-                            new ServerHandler().createTask(username.getText().toString(), userType, task);
-                            new ServerHandler().defineType(username.getText().toString(), userType, task.getType());
-                        } else {
-                            Toast.makeText(context, "Not a vlid username", Toast.LENGTH_SHORT).show();
-                            return;
-                        }
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                    Intent intent = new Intent(SetOthersTaskActivity.this, TasksActivity.class);
-                    intent.putExtra("user", user);
+                    Task task = new Task(name.getText().toString(),date,new Type(typename.getSelectedItem().toString(),pr),descrip);
+                    user.addTask(task);
+                    // new ServerHandler().createTask(user.getUserName(), user.getUserType(), task);
+                    Intent intent = new Intent(AddTaskActivity.this,TasksActivity.class);
+                    intent.putExtra("user",user);
                     startActivity(intent);
                 }
             }
         });
-
     }
+
+
+
 }

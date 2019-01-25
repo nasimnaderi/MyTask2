@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".BeginActivity"
+    tools:context=".Task.BeginActivity"
     android:background="@drawable/begin"
     android:orientation="horizontal">
 
@@ -20,11 +20,11 @@
         android:textSize="30dp" />
 
     <!--<ImageView-->
-        <!--android:layout_below="@id/Task_manager"-->
-        <!--android:id="@+id/imageView"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="450dp"-->
-        <!--app:srcCompat="@drawable/begin" />-->
+    <!--android:layout_below="@id/Task_manager"-->
+    <!--android:id="@+id/imageView"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="450dp"-->
+    <!--app:srcCompat="@drawable/begin" />-->
 
     <TextView
 
@@ -33,7 +33,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="46dp"
-        android:text="@string/do_your_works_on_time"
+        android:text="do_your_works_on_time"
         android:textColor="@android:color/background_light"
         android:textSize="20dp"
         android:textStyle="bold" />

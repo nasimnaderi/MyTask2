@@ -33,7 +33,7 @@
         android:background="@android:color/holo_orange_light"
         android:clickable="true"
         android:focusable="true"
-        android:text="@string/define_type"
+        android:text="define_type"
         android:textColor="@android:color/background_light" />
 
     <Button
