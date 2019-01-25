@@ -2,48 +2,53 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/back">
 
-    <EditText
+    <android.support.design.widget.TextInputEditText
         android:id="@+id/register_password"
         android:layout_width="30mm"
+        android:textColor="@android:color/black"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="120dp"
         android:layout_marginTop="262dp" />
 
-
-    <EditText
+    <android.support.design.widget.TextInputEditText
         android:id="@+id/register_family"
         android:layout_width="30mm"
+        android:textColor="@android:color/black"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="120dp"
         android:layout_marginTop="214dp" />
 
-    <EditText
+    <android.support.design.widget.TextInputEditText
         android:id="@+id/register_email"
         android:layout_width="30mm"
+        android:textColor="@android:color/black"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="120dp"
         android:layout_marginTop="120dp" />
 
-    <EditText
+    <android.support.design.widget.TextInputEditText
         android:id="@+id/register_name"
         android:layout_width="30mm"
+        android:textColor="@android:color/black"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="120dp"
         android:layout_marginTop="168dp" />
 
-    <EditText
+    <android.support.design.widget.TextInputEditText
         android:id="@+id/register_user_name"
         android:layout_width="30mm"
+        android:textColor="@android:color/black"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
@@ -53,6 +58,7 @@
     <TextView
         android:id="@+id/txt4"
         android:layout_width="wrap_content"
+        android:textColor="@android:color/black"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
@@ -66,6 +72,7 @@
         android:id="@+id/txt5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
         android:layout_alignTop="@+id/txt1"
         android:layout_alignParentStart="true"
         android:layout_marginStart="35dp"
@@ -73,6 +80,7 @@
         android:text="Family:" />
 
     <TextView
+        android:textColor="@android:color/black"
         android:id="@+id/txt3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -83,6 +91,7 @@
         android:text="Name:" />
 
     <TextView
+        android:textColor="@android:color/black"
         android:id="@+id/txt2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -93,6 +102,7 @@
         android:text="Email:" />
 
     <TextView
+        android:textColor="@android:color/black"
         android:id="@+id/txt1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -103,6 +113,7 @@
         android:text="User name:" />
 
     <RadioButton
+        android:textColor="@android:color/black"
         android:id="@+id/register_golden_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -112,6 +123,7 @@
         android:text="Golden" />
 
     <RadioButton
+        android:textColor="@android:color/black"
         android:id="@+id/register_silver_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -134,9 +146,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="31dp"
-        android:layout_marginBottom="47dp"
-        android:background="@color/colorPrimaryDark"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="0dp"
+        android:background="@android:color/holo_orange_light"
         android:text="Register"
         android:textColor="@android:color/darker_gray" />
 </RelativeLayout>

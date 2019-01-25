@@ -1,4 +1,4 @@
-package com.example.user.mytask;
+package com.example.soroush.taskmanager;
 
 import org.junit.Test;
 

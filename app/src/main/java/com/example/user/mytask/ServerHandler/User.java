@@ -1,4 +1,4 @@
-package com.example.user.mytask.ServerHandler;
+package com.example.soroush.taskmanager.ServerHandler;
 
 import java.io.Serializable;
 import java.util.Vector;
@@ -10,10 +10,10 @@ public class User implements Serializable {
     String family;
     String password;
     String userType;
-    Vector<Type> types;
-    Vector<Task> tasks;
+    Vector<com.example.soroush.taskmanager.ServerHandler.Type> types;
+    Vector<com.example.soroush.taskmanager.ServerHandler.Task> tasks;
 
-    public User(String userName, String email, String name, String family, String password, String userType, Vector<Type> types, Vector<Task> tasks) {
+    public User(String userName, String email, String name, String family, String password, String userType, Vector<com.example.soroush.taskmanager.ServerHandler.Type> types, Vector<com.example.soroush.taskmanager.ServerHandler.Task> tasks) {
         this.userName = userName;
         this.email = email;
         this.name = name;
@@ -33,27 +33,23 @@ public class User implements Serializable {
         this.userType = userType;
         tasks = new Vector<>();
         types = new Vector<>();
-        types.add(new Type("Low",0));
-        types.add(new Type("Average",50));
-        types.add(new Type("High",100));
+        types.add(new com.example.soroush.taskmanager.ServerHandler.Type("Low",0));
+        types.add(new com.example.soroush.taskmanager.ServerHandler.Type("Average",50));
+        types.add(new com.example.soroush.taskmanager.ServerHandler.Type("High",100));
     }
 
     public User() {
     }
 
-    public void addType(Type type){
+    public void addType(com.example.soroush.taskmanager.ServerHandler.Type type){
         types.add(type);
     }
 
-    public void addTask(Task task){
+    public void addTask(com.example.soroush.taskmanager.ServerHandler.Task task){
         tasks.add(task);
     }
 
-    public void defineType(Type type){
-        types.add(type);
-    }
-
-    public void deleteTask(Task task){
+    public void deleteTask(com.example.soroush.taskmanager.ServerHandler.Task task){
         for (int i = 0; i < tasks.size(); i++) {
             if(tasks.get(i).equals(task)){
                 tasks.remove(i);
@@ -110,19 +106,19 @@ public class User implements Serializable {
         this.userType = userType;
     }
 
-    public Vector<Type> getTypes() {
+    public Vector<com.example.soroush.taskmanager.ServerHandler.Type> getTypes() {
         return types;
     }
 
-    public void setTypes(Vector<Type> types) {
+    public void setTypes(Vector<com.example.soroush.taskmanager.ServerHandler.Type> types) {
         this.types = types;
     }
 
-    public Vector<Task> getTasks() {
+    public Vector<com.example.soroush.taskmanager.ServerHandler.Task> getTasks() {
         return tasks;
     }
 
-    public void setTasks(Vector<Task> tasks) {
+    public void setTasks(Vector<com.example.soroush.taskmanager.ServerHandler.Task> tasks) {
         this.tasks = tasks;
     }
 }

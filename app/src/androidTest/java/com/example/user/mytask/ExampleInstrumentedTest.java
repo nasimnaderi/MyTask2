@@ -1,4 +1,4 @@
-package com.example.user.mytask;
+package com.example.soroush.taskmanager;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.example.user.mytask", appContext.getPackageName());
+        assertEquals("com.example.soroush.taskmanager", appContext.getPackageName());
     }
 }

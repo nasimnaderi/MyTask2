@@ -5,39 +5,44 @@
     android:orientation="vertical">
 
     <TextView
+        android:textColor="@android:color/black"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Username:"/>
 
     <EditText
+        android:textColor="@android:color/black"
         android:id="@+id/set_type_username"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="username"/>
 
 
-
     <TextView
+        android:textColor="@android:color/black"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Task name:"/>
+        android:text="Type name:"/>
 
     <EditText
+        android:textColor="@android:color/black"
         android:id="@+id/set_type_task_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Task name"/>
+        android:hint="Type name"/>
 
     <TextView
+        android:textColor="@android:color/black"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Task Priority:" />
+        android:text="Type Priority:" />
 
     <EditText
+        android:textColor="@android:color/black"
         android:id="@+id/set_type_priority"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Task Priority"/>
+        android:hint="Type Priority"/>
 
 
 </LinearLayout>

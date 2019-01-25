@@ -16,6 +16,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".AddTaskActivity" />
+        <activity android:name=".BeginActivity" />
+        <activity android:name=".FullTaskInfoActivity" />
+        <activity android:name=".Register"/>
+    <activity android:name=".TasksActivity"/>
     </application>
 
 </manifest>

@@ -7,24 +7,27 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Task name:"/>
+        android:textColor="@android:color/black"
+        android:text="Type name:"/>
 
     <EditText
         android:id="@+id/define_task_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Task name"/>
-
+        android:textColor="@android:color/black"
+        android:hint="Type name"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Task Priority:" />
+        android:textColor="@android:color/black"
+        android:text="Type Priority:" />
 
     <EditText
         android:id="@+id/define_task_priority"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Task Priority"/>
+        android:textColor="@android:color/black"
+        android:hint="Type Priority"/>
 
 </LinearLayout>

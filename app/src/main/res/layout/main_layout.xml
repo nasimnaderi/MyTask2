@@ -2,15 +2,16 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/begin"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="match_parent"
-        android:layout_height="400dp"
-        app:srcCompat="@drawable/task_manager"
-        />
+    <!--<ImageView-->
+        <!--android:id="@+id/imageView"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="400dp"-->
+        <!--app:srcCompat="@drawable/task_manager"-->
+        <!--/>-->
 
     <Button
         android:id="@+id/login_btn"
@@ -18,11 +19,11 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="53dp"
-        android:layout_marginBottom="35dp"
-        android:background="?android:attr/colorActivatedHighlight"
-        android:text="login" />
-
+        android:layout_marginStart="57dp"
+        android:layout_marginBottom="24dp"
+        android:background="@color/design_default_color_primary_dark"
+        android:text="@string/login"
+        android:textColor="@android:color/background_light" />
 
     <Button
         android:id="@+id/register_btn"
@@ -30,9 +31,10 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/login_btn"
         android:layout_alignParentEnd="true"
-        android:layout_marginEnd="66dp"
+        android:layout_marginEnd="62dp"
         android:layout_marginBottom="0dp"
-        android:background="?android:attr/colorActivatedHighlight"
-        android:text="register" />
+        android:background="@color/design_default_color_primary_dark"
+        android:text="@string/register"
+        android:textColor="@android:color/background_light" />
 
 </RelativeLayout>
